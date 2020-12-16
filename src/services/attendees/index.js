@@ -61,13 +61,13 @@ attendeesRouter.get("/csv",async (req,res,next)=> {
   }
 })
 
-attendeesRouter.post("/sendEmail", async (req, res, next) => {
+attendeesRouter.post("/send", async (req, res, next) => {
   try {
     sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
     const msg = {
-      to: "",
-      from: "",
+      to: "helenstudyo@gmail.com",
+      from: "hillcakmak@gmail.com",
       subject: "Sending with Twilio SendGrid is Fun",
       text: "and easy to do anywhere, even with Node.js",
       html: "<strong>and easy to do anywhere, even with Node.js</strong>",
