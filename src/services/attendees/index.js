@@ -42,11 +42,12 @@ attendeesRouter.get("/csv",async (req,res,next)=> {
   try {
     const path = join(__dirname, "attendees.json")
     const jsonReadableStream = createReadStream(path)
+    
 
     const json2csv = new Transform({
       fields: ["firstName", "secondName", "email", "id"],
     })
-
+    console.log("path:",path, "jsonReadableSystem:",jsonReadableStream,"json2csv:",json2csv)
     res.setHeader("Content-Disposition", "attachment; filename=export.csv")
     pipeline(jsonReadableStream, json2csv, res, err => {
       if (err) {
